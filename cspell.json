@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en,pt_BR",
+  "words": [
+    "addEventListener",
+    "backgroundColor",
+    "cspell",
+    "expo-status-bar",
+    "meu-perfil-dev",
+    "marginTop",
+    "onPress",
+    "StatusBar"
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    ".expo/**",
+    "dist/**",
+    "web-build/**",
+    "package-lock.json",
+    "assets/**"
+  ]
+}
