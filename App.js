@@ -8,8 +8,9 @@ const disponivel = true;
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.eyebrow}>MEU PERFIL DEV</Text>
+      <Image uri="https://github.com/tiagoeduardobr.png">
       <Text style={styles.name}>{nome}</Text>
       <Text style={styles.role}>{cargo}</Text>
       <Text style={styles.location}>{cidade}</Text>
@@ -22,7 +23,7 @@ export default function App() {
           onPress={() => Alert.alert("Entre em contato", email)}
         />
       </View>
-    </View>
+    </ScrollViewView>
   );
 }
 
