@@ -39,6 +39,9 @@ Docs: <https://docs.expo.dev/eas/index.md>
 - Name variables, functions, components, props, constants, and types in English using clear, domain-appropriate technical terms.
 - Keep user-facing interface text in Brazilian Portuguese.
 - Write code comments and docstrings in Brazilian Portuguese.
+- Keep CSpell configured for English and Brazilian Portuguese (`en,pt_BR`), adding project-specific technical terms to the project dictionary when needed.
+- Use Conventional Commits for commit messages, with an appropriate type and optional scope (for example, `feat(profile): add profile card` or `docs(readme): update setup instructions`).
+- Describe this repository as an independent student project developed in the SCTEC Carreira Tech context. Do not present it as an official SCTEC product, and verify SCTEC program details against official sources before documenting them.
 
 - If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
 - Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
