@@ -5,11 +5,13 @@
   "words": [
     "addEventListener",
     "backgroundColor",
+    "bunx",
     "cspell",
     "expo-status-bar",
-    "meu-perfil-dev",
     "marginTop",
+    "meu-perfil-dev",
     "onPress",
+    "Pressable",
     "StatusBar"
   ],
   "ignorePaths": [
