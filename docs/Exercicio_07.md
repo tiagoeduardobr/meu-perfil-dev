@@ -1,10 +1,11 @@
 # Exercício — Construindo a base, tudo é uma progressão
 
-## App Meu Perfil Dev (Etapa 7): de uma tela só para uma pilha
+## App Meu Perfil Dev (Etapa 8): abas embaixo
 
-1. Instale o Expo Router no `meu-perfil-dev` (mesmos 3 passos) e crie `app/_layout.js` com um `Stack`.
-2. Em `app/index.js`, coloque o conteúdo do `App.js` da semana 2, menos habilidades e recados, com botões que levam a `/habilidades` e `/recados`.
-3. Em `app/recados.js`, coloque o mural de recados.
-4. Em `app/habilidades/[id].js`, coloque o detalhe, com o nome da habilidade no título e botões "Voltar" e "Ir para o início" (`dismissAll`).
+1. Crie o grupo `app/(tabs)/` com `_layout.js` (`Tabs`) e as abas `index.js` (Perfil), `habilidades.js` e `recados.js`.
+2. Utilize os ícones `person`, `code-slash` e `chatbubbles` (cheio na aba ativa e com `-outline` nas outras).
+3. O detalhe vai para `app/habilidade/[id].js`, fora do grupo, para abrir por cima das abas.
+4. O arquivo `app/_layout.js` vira a pilha de fora, com `headerShown: false` no `(tabs)`.
+5. No mural, a bolinha da aba mostra quantos recados existem.
 
-**Teste:** escreva um recado, volte e entre de novo no mural. O que aconteceu? A resposta é sexta.
+**Teste:** escreva recados, troque de aba e volte. E se recarregar o app (`r` no terminal)?

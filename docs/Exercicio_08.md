@@ -1,11 +1,10 @@
 # Exercício — Construindo a base, tudo é uma progressão
 
-## App Meu Perfil Dev (Etapa 8): abas embaixo
+## App Meu Perfil Dev (Etapa 9): o app que não esquece
 
-1. Crie o grupo `app/(tabs)/` com `_layout.js` (`Tabs`) e as abas `index.js` (Perfil), `habilidades.js` e `recados.js`.
-2. Utilize os ícones `person`, `code-slash` e `chatbubbles` (cheio na aba ativa e com `-outline` nas outras).
-3. O detalhe vai para `app/habilidade/[id].js`, fora do grupo, para abrir por cima das abas.
-4. O arquivo `app/_layout.js` vira a pilha de fora, com `headerShown: false` no `(tabs)`.
-5. No mural, a bolinha da aba mostra quantos recados existem.
+1. Instale o AsyncStorage no projeto `meu-perfil-dev`.
+2. Recados: carregue a lista ao abrir e salve a cada mudança (use o estado `carregou`). A bolinha da aba com a quantidade de recados deve continuar funcionando.
+3. Perfil: as recomendações e o estado disponível/indisponível também devem ficar salvos.
+4. Adicione um botão "X" em cada recado para removê-lo e um botão "Apagar todos os recados", utilizando `removeItem`.
 
-**Teste:** escreva recados, troque de aba e volte. E se recarregar o app (`r` no terminal)?
+**Teste final:** escreva recados, recomende, marque como indisponível, feche o app e abra novamente. Tudo continua no lugar?

@@ -1,16 +1,23 @@
-import { useState } from "react";
-import { StatusBar } from "expo-status-bar";
+import { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
   Pressable,
   ScrollView,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
-import Header from "./components/Header";
+import { router } from "expo-router";
+import Header from "../components/Header";
 
 const MAX_RECOMMENDATIONS = 10;
+const GITHUB_USERNAME = "tiagoeduardobr";
+
+const [github, setGithub] = useState(null);
+const [isLoadingGithub, setIsLoadingGithub] = useState(true);
+const [githubError, setGithubError] = useState("");
+const [secondsOnProfile, setSecondsOnProfile] = useState(0);
+const [refreshVersion, setRefreshVersion] = useState(0);
 
 const profile = {
   name: "Tiago",
