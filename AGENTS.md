@@ -1,48 +1,30 @@
-# This is an Expo/React Native mobile application. Prioritize mobile-first patterns, performance, and cross-platform compatibility
+# Meu Perfil Dev — notas para agentes
 
-## Expo has changed — do not trust your training data
+Projeto de estudo independente no contexto SCTEC Carreira Tech; não é produto oficial do SCTEC. Verifique detalhes do programa em fontes oficiais antes de documentá-los.
 
-Expo ships breaking changes every SDK release. APIs you remember are likely renamed, moved, or removed. Before writing any code that touches an Expo, EAS, or React Native API:
+## Estado real do projeto
 
-1. Read the major version of the `expo` package in `package.json`.
-2. Fetch the matching versioned docs: `https://docs.expo.dev/versions/v<major>.0.0/`
-3. For anything else, fetch <https://docs.expo.dev/llms.txt> — an index of all Expo docs with corrections to common LLM misconceptions. Follow its links to the specific page you need; never answer from memory.
+- JavaScript puro: não há TypeScript, `tsconfig.json`, `src/`, ESLint, cspell instalado, testes nem scripts de lint/typecheck. `package.json` só define `start`, `android`, `ios`, `web`.
+- Entrypoint é `expo-router/entry` (`main` no `package.json`): rotas em `app/` na raiz, não `src/app/`. `app/_layout.js` é um `Stack`; componentes fora de rotas ficam em `components/`.
+- `index.js` na raiz é resquício (`registerRootComponent` de um `App` inexistente) — não é o entrypoint nem a tela.
+- `README.md` está desatualizado (SDK 57 / RN 0.86 / estrutura com `App.js`; links de exercícios com acento). Versões reais: Expo 58, RN 0.88, React 19.3 — confira em `package.json` (`app.json` traz só configuração nativa/plugins).
+- Código em andamento: `app/recados.js` e `app/habilidades/[id].js` vazios; `app/habilidades/index.js` referenciado no layout, mas ausente; `app/index.js` chama `useState` no escopo do módulo e usa `StyleSheet`/`StatusBar` sem importar. Nenhuma ferramenta acusa isso — valide executando o app.
 
-## Commands
+## Comandos
 
-Use `bunx` instead of `npx` if the project uses bun (`bun.lock` present).
+- npm (`package-lock.json`), sem bun. `npm install` → `npx expo start` (atalhos `a`/`i`/`w`); ou `npm run android` / `npm run ios` / `npm run web`.
+- Instale dependências com `npx expo install <pacote>`, nunca `npm add`. `expo-doctor`, ESLint, TypeScript e cspell não estão instalados: `npx expo lint` / `npx tsc --noEmit` só funcionarão após adicionar config e deps.
+- Sem testes automatizados. Verificação = subir o app e seguir a seção de teste do exercício em `docs/` ("Teste" ou "Teste de aceitação", quando houver).
 
-```bash
-npx expo install <package>  # ALWAYS use instead of npm/yarn/pnpm/bun add — resolves SDK-compatible versions
-npx expo start              # start the dev server
-npx expo lint               # lint
-npx tsc --noEmit            # typecheck
-npx expo-doctor             # diagnose dependency and config issues
-npx expo install --fix      # fix incompatible package versions
-```
+## `docs/` é a fonte das tarefas
 
-Run lint and typecheck before declaring any task done.
+- `docs/Exercicio_*.md` trazem os critérios da tarefa; os exercícios 15 e 16 incluem "Convenções do projeto", "Teste de aceitação" e "Checklist de conclusão". Leia sempre o exercício corrente antes de implementar.
+- Exercícios 15–16 descrevem arquitetura alvo em TypeScript com `src/` (`src/types`, `src/contexts`, `src/app`, ...), ainda não migrada; o Exercício 14 usa `app/camera.tsx` e `app/mapa.tsx` na raiz. `docs/Migracao_JS_TS.md` é o guia. Não presuma que esses arquivos existam.
+- Exercício 15 exige `json-server` rodando (não é dependência do projeto) e `expo-sqlite`; exercício 16 usa AsyncStorage. Módulos nativos fora do Expo Go pedem dev build: `npx expo run:android` / `npx expo run:ios` ou EAS.
 
-## Navigation & Routing
+## Convenções
 
-- Use **Expo Router** for all navigation. Routes live in `src/app/` — every file there is a screen, `_layout.tsx` files define navigators. Keep non-route code (components, hooks, utils) outside `src/app/`.
-- Import `Link`, `router`, and `useLocalSearchParams` from `expo-router`.
-- Docs: <https://docs.expo.dev/router/introduction.md>
-
-## Building with EAS
-
-Use EAS to build, sign, and submit the app in the cloud (`eas build`, `eas submit`) and to ship over-the-air updates (`eas update`) — no local Xcode or Android Studio required. Run EAS CLI as `bunx eas-cli <command>` in Bun projects, or `npx eas-cli@latest <command>` otherwise; substitute that for bare `eas` in docs examples.
-Docs: <https://docs.expo.dev/eas/index.md>
-
-## Rules
-
-- Name variables, functions, components, props, constants, and types in English using clear, domain-appropriate technical terms.
-- Keep user-facing interface text in Brazilian Portuguese.
-- Write code comments and docstrings in Brazilian Portuguese.
-- Keep CSpell configured for English and Brazilian Portuguese (`en,pt_BR`), adding project-specific technical terms to the project dictionary when needed.
-- Use Conventional Commits for commit messages, with an appropriate type and optional scope (for example, `feat(profile): add profile card` or `docs(readme): update setup instructions`).
-- Describe this repository as an independent student project developed in the SCTEC Carreira Tech context. Do not present it as an official SCTEC product, and verify SCTEC program details against official sources before documenting them.
-
-- If `ios/` and `android/` directories do not exist, they are generated (Continuous Native Generation). Never create or edit them by hand — configure native behavior in `app.json` and config plugins.
-- Expo Go only includes its bundled native modules. After adding a library with native code, the app needs a development build: `npx expo run:ios|android` locally, or `eas build --profile development`.
-- Prefer recommended Expo modules over third-party libraries, and check your available skills before adding dependencies. Docs: <https://docs.expo.dev/versions/latest/index.md>
+- Código/identificadores em inglês; textos de UI, comentários e documentação em português. Manter `cspell.json` em `en,pt_BR` e adicionar termos novos em `words`.
+- Commits Conventional Commits (ex.: `feat(profile): add profile card`).
+- Sem diretórios `ios/`/`android/` (CNG): configs nativas em `app.json` + config plugins.
+- Antes de usar API Expo/EAS/RN, confirme a major do `expo` em `package.json` e consulte `https://docs.expo.dev/versions/v<major>.0.0/` (índice: `https://docs.expo.dev/llms.txt`); não responda de memória.
