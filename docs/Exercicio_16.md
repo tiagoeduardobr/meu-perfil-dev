@@ -146,7 +146,7 @@ isFavorite?: boolean;
 ### Referência visual
 
 | Habilidade | Nível | Favorita |
-|---|---|---|
+| --- | --- | --- |
 | HTML | Avançado | Não |
 | JavaScript | Avançado | Sim |
 | Node.js | Básico | Não |

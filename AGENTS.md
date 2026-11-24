@@ -28,3 +28,4 @@ Projeto de estudo independente no contexto SCTEC Carreira Tech; não é produto 
 - Commits Conventional Commits (ex.: `feat(profile): add profile card`).
 - Sem diretórios `ios/`/`android/` (CNG): configs nativas em `app.json` + config plugins.
 - Antes de usar API Expo/EAS/RN, confirme a major do `expo` em `package.json` e consulte `https://docs.expo.dev/versions/v<major>.0.0/` (índice: `https://docs.expo.dev/llms.txt`); não responda de memória.
+- Sempre use a **question tool** para qualquer decisão com opções, mesmo quando o repositório já contém a resposta; não decida sozinho nesses casos.
